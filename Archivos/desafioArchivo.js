@@ -69,8 +69,10 @@ class Contenedor{
     }
 
     async getRandom(){
-        let data= this.getAll()
+        let data= await this.getAll()
+        console.log(data)
         let id = Math.floor(Math.random()*data.length)
+        console.log(id)
         return this.getById(id)
     }
 }

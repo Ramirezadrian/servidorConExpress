@@ -9,16 +9,16 @@ app.get('/', (req, res) => {
   res.send({ mensaje: 'Desafio "Servidor con Express"'})
 })
 
-app.get('/productos', (req, res) => {
+app.get('/productos', async (req, res) => {
   const contenedor = new Contenedor('productos.txt')
-const prod = contenedor.getAll()
+const prod = await contenedor.getAll()
 console.log(prod)
   res.send(prod)
 })
 
-app.get('/productoRandom', (req, res) => {
+app.get('/productoRandom', async (req, res) => {
   const contenedor = new Contenedor('productos.txt')
-  const prod = contenedor.getRandom()
+  const prod = await contenedor.getRandom()
   res.send(prod)
 })
 
